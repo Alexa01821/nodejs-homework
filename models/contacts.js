@@ -63,20 +63,15 @@ const updateContact = async (contactId, body) => {
 
   if (finedIndexContact === -1) return null;
   const updatedContact = {
-    ...contactsList[finedIndexContact],
+    id: contactId,
     ...body,
   };
-  contactsList.splice(finedIndexContact, 1, updatedContact);
-
-  console.log(updatedContact);
- 
-
   await fs.writeFile(
     contactsPath,
     JSON.stringify(contactsList, null, 2)
   );
 
-  return contactsList[finedIndexContact];
+  return updatedContact;
 };
 
 module.exports = {

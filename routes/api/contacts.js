@@ -17,6 +17,10 @@ router.post(
 
 router.delete("/:contactId", ctrl.removeContact);
 
-router.put("/:contactId", ctrl.updateContact);
+router.put(
+  "/:contactId",
+  validateBody(schema.addSchema),
+  ctrl.updateContact
+);
 
 module.exports = router;
