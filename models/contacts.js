@@ -66,6 +66,8 @@ const updateContact = async (contactId, body) => {
     id: contactId,
     ...body,
   };
+
+  contactsList.splice(finedIndexContact, 1, updatedContact);
   await fs.writeFile(
     contactsPath,
     JSON.stringify(contactsList, null, 2)
