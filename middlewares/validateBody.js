@@ -8,7 +8,7 @@ const validateBody = (schema) => {
     const { error } = schema.validate(req.body);
     if (error) {
       throw HttpError(400, {
-        message: "Missing field favorite",
+        message: "Missing field",
       });
     }
     next();

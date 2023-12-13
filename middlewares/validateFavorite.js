@@ -3,7 +3,7 @@ const { HttpError } = require("../helpers");
 const validateFavorite = (schema) => {
   const func = (req, res, next) => {
     if (Object.keys(req.body).length < 1) {
-      throw HttpError(400, "Missing fields");
+      throw HttpError(400, "Missing fields favorite");
     }
     const { error } = schema.validate(req.body);
     if (error) {
