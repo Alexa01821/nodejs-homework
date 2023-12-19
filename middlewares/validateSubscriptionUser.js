@@ -10,9 +10,10 @@ const validateSubscriptionUser =
     }
     const { error } = schema.validate(req.body);
     if (error) {
-      throw HttpError(400, {
-        message: "Missing required subscription field",
-      });
+      throw HttpError(
+        400,
+        "Missing required subscription field"
+      );
     }
     next();
   };

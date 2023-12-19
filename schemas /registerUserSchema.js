@@ -2,10 +2,10 @@ const Joi = require("joi");
 
 const registerUserSchema = Joi.object({
   email: Joi.string().required().messages({
-    "any.required": "missing required email field",
+    "any.required": "Missing required email field",
   }),
   password: Joi.string().required().messages({
-    "any.required": "missing required password field",
+    "any.required": "Missing required password field",
   }),
 });
 

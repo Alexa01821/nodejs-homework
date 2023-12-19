@@ -1,9 +1,13 @@
 const { HttpError } = require("../helpers");
 
-const validateBody = (schema) => {
-  const func = (req, res, next) => {
+const validationAvatarUser =
+  (schema) => (req, res, next) => {
+    if (req.file) {
+      next();
+      return;
+    }
     if (Object.keys(req.body).length < 1) {
-      throw HttpError(400, "Missing fields");
+      throw HttpError(400, "Missing required avatar field");
     }
     const { error } = schema.validate(req.body);
     if (error) {
@@ -12,7 +16,4 @@ const validateBody = (schema) => {
     next();
   };
 
-  return func;
-};
-
-module.exports = validateBody;
+module.exports = validationAvatarUser;

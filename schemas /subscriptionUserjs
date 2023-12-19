@@ -5,7 +5,7 @@ const subscriptionUserSchema = Joi.object({
   subscription: Joi.string()
     .valid(...userSubscriptions)
     .messages({
-      "any.required": "missing required subscription field",
+      "any.required": "Missing required subscription field",
     }),
 });
 
